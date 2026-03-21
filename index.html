@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<h1 class="titulo">❤️Tempo decorrido desde 22/03/2025❤️</h1>
+
+<body>
+    <div id="tela-entrada" onclick="revelarSite()">
+        <div class="container-coracao">
+            <img src="chave.png" id="coracao-click" alt="Coração">
+            <p>Clique na chave</p>
+        </div>
+    </div>
+
+    <div id="site-completo" style="visibility: hidden; opacity: 0; transition: opacity 1s ease;">
+    </div>
+
+    <div class="wrapper">
+        <aside class="sidebar left"></aside>
+        <main class="content">
+
+            <div class="galeria-container">
+                <img src="foto1.jpeg" class="foto-slide ativa" alt="Nossa Foto 1">
+                <img src="foto2.jpeg" class="foto-slide" alt="Nossa Foto 2">
+                <img src="foto3.jpeg" class="foto-slide" alt="Nossa Foto 3">
+                <img src="foto4.jpeg" class="foto-slide" alt="Nossa Foto 3">
+                <img src="foto5.jpeg" class="foto-slide" alt="Nossa Foto 3">
+            </div>
+
+            <div class="contador-horizontal">
+                <div class="unidade-mini">
+                    <span id="anos">0</span>
+                    <small>Anos</small>
+                </div>
+                <div class="unidade-mini">
+                    <span id="dias">0</span>
+                    <small>Dias</small>
+                </div>
+                <div class="unidade-mini">
+                    <span id="horas">00</span>
+                    <small>Hrs</small>
+                </div>
+                <div class="unidade-mini">
+                    <span id="minutos">00</span>
+                    <small>Min</small>
+                </div>
+                <div class="unidade-mini">
+                    <span id="segundos">00</span>
+                    <small>Seg</small>
+                </div>
+            </div>
+
+            <div class="mensagem-bonita">
+                Eu poderia falar muitas coisas complexas e profundas para voce nesse momento, mas eu acho que uma
+                simples frase pode resumir tudo que eu sinti, sinto e vou sentir por voce
+
+            </div>
+            <div onclick="controlarMusica()" id="btn-play" class="teamo">
+                <audio id="minhaMusica" src="tim.mp3"></audio>
+
+                "Eu te amo"
+            </div>
+            <div class="mensagem-bonita">
+                Desde o momento que eu te pedi em namoro, essa e a frase que sempre vem na minha cabeca quando eu olho
+                para voce, e eu nao me arrependo disso
+            </div>
+        </main>
+        <aside class="sidebar right"></aside>
+    </div>
+
+
+
+
+
+
+    <div class="linha"></div>
+
+    <script src="documents.js"></script>
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,209 @@
+:root {
+  --bg-main: #fedcd2;
+  --bg-content: #ffc8c7;
+  --primary-pink: #ffadb9;
+  --sidebar-color: #ff8786;
+  --white: #ffffff;
+  --transition-soft: all 1s ease-in-out;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.titulo{
+  text-align: center;
+}
+
+.mensagem-bonita{
+  text-align: center;
+  color: white;
+  font-style: italic;
+  font-size: 17pt;
+  word-wrap: break-word;
+  font-weight: bold;
+}
+
+.teamo{
+  text-align: center;
+  color: rgb(255, 0, 0);
+  font-style: italic;
+  font-size: 24pt;
+  word-wrap: break-word;
+  padding: 15px 5px;
+  font-weight: bold;
+  border: 2px solid #ff7f7f;
+  border-radius: 15px;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Arial', sans-serif;
+  background-color: var(--bg-main);
+}
+
+/* 2. TELA DE ENTRADA (OVERLAY) */
+#tela-entrada {
+  position: fixed;
+  inset: 0; /* Atalho para top, left, width, height */
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  cursor: pointer;
+  transition: opacity 1s, visibility 1s;
+}
+
+#tela-entrada.fade-out {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: scale(1.1);
+}
+
+.container-coracao {
+  text-align: center;
+  color: var(--white);
+}
+
+#coracao-click {
+  width: 300px;
+  animation: bater 1.2s infinite;
+}
+
+@keyframes bater {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* 3. ESTRUTURA PRINCIPAL */
+.wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 200px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  background: var(--sidebar-color) url("coracao4.jpg") center/cover fixed;
+  color: var(--white);
+  padding: 20px;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  background-color: var(--bg-content);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+
+}
+
+/* 4. GALERIA DE FOTOS */
+.galeria-container {
+  position: relative;
+  width: 90%;
+  max-width: 400px;
+  height: 400px;
+  border: 8px solid var(--primary-pink);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.foto-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.foto-slide.ativa {
+  opacity: 1;
+  z-index: 2;
+}
+
+/* 5. CONTADOR (RESPONSIVO POR PADRÃO) */
+.contador-horizontal {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  gap: 10px;
+}
+
+.unidade-mini {
+  flex: 1;
+  background-color: var(--primary-pink);
+  border-radius: 12px;
+  padding: 15px 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--white);
+}
+
+.unidade-mini span {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.unidade-mini small {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+/* 6. RESPONSIVIDADE (MOBILE) */
+@media (max-width: 500px) {
+  .sidebar {
+      display: none;
+  }
+
+  .contador-horizontal {
+      gap: 5px;
+  }
+
+  .unidade-mini span {
+      font-size: 1.2rem;
+  }
+
+  .unidade-mini small {
+      font-size: 0.6rem;
+  }
+
+  .galeria-container {
+      height: 300px; /* Reduz altura no mobile */
+  }
+}
+
+/* 1. Estilo base do coraçãozinho */
+.coracao-neve {
+    position: fixed; /* Fica preso na tela, não no rolar da página */
+    top: -20px;       /* Começa um pouco acima da tela */
+    user-select: none; /* Impede que o usuário selecione o texto do coração */
+    pointer-events: none; /* Garante que o clique passe direto para o site */
+    z-index: 50;      /* Fica acima do conteúdo, mas ABAIXO da tela preta (que é 10000) */
+    animation: cair linear infinite;
+    color: #ff8786;   /* Cor dos corações (use a variável --primary-pink se quiser) */
+}
+
+/* 2. A Animação de Queda e Rotação */
+@keyframes cair {
+    0% {
+        transform: translateY(0vh) translateX(0px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        /* Cai até o fim da tela, move um pouco para o lado e gira */
+        transform: translateY(105vh) translateX(100px) rotate(360deg);
+        opacity: 0; /* Desvanece no final */
+    }
+}
